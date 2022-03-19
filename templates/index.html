@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>  Raw Material Prediction </title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}">  </script>
+</head>
+<body>
+    <form action = "http://localhost:5000/predict" method = "POST" onsubmit="Submit()">
+        <!-- Starting Year -->
+        <label for="startyear"> Starting Year: </label>
+        <input type="number" name="startyear" id="">
+        
+        <!-- Ending Year -->
+        <label for="endyear"> End Year: </label>
+        <input type="number" name="endyear" id="">
+        
+        <!-- Number Of Cars -->
+        <label for="no_of_cars"> Enter No Of Cars: </label>
+        <input type="number" name="no_of_cars" id="">
+
+        <div class="checkboxes">
+            <!-- Steel -->
+            <input type="checkbox" id="steel" name="material_steel" value="Steel">
+            <label for="material_steel"> Steel </label>            
+            <br>
+            <!-- Cooper -->
+            <input type="checkbox" id="cooper" name="material_cooper" value="cooper">
+            <label for="material_cooper"> Cooper </label>
+            <br>
+            <!-- Aluminium -->
+            <input type="checkbox" id="aluminium" name="material_aluminium" value="aluminium">
+            <label for="material_aluminium"> Aluminium  </label>
+            <br>
+            <!-- Plastic -->
+            <input type="checkbox" id="plastic" name="material_plastic" value="plastic">
+            <label for="material_plastic"> Plastic  </label>
+            <br>
+            <!-- Rubber -->
+            <input type="checkbox" id="rubber" name="material_rubber" value="rubber">
+            <label for="material_rubber"> Rubber  </label>
+            <br>
+            <!-- Predict Button -->
+            <button type="submit" class="btn btn-primary"> Predict </button>
+        </div>
+    </form>
+
+    <br>
+        <h4>{{ result1 }}</h4>
+    <br>
+        <h4>{{ result2 }}</h4>
+    <br>
+        <h4>{{ steel }}</h4>
+    <br>
+        <h4>{{ plastics }}</h4>
+    <br>
+        <h4>{{ iron }}</h4>
+    <br>
+        <h4>{{ rubber }}</h4>
+    <br>
+        <h4>{{ aluminium }}</h4>
+    <br>
+        <h4>{{ glass }}</h4>
+    <br>
+        <h4>{{ copper }}</h4>
+</body>
+</html>
